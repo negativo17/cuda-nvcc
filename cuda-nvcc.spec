@@ -8,7 +8,7 @@
 
 Name:           %(echo %real_name | tr '_' '-')
 Epoch:          1
-Version:        11.6.55
+Version:        11.6.112
 Release:        1%{?dist}
 Summary:        CUDA Compiler (NVCC)
 License:        CUDA Toolkit
@@ -120,5 +120,8 @@ sed -i \
 %{_libdir}/libnvvm.so.4.0.0
 
 %changelog
+* Tue Mar 08 2022 Simone Caronni <negativo17@gmail.com> - 1:11.6.112-1
+- Update to 11.6.112 (CUDA 11.6.1).
+
 * Fri Jan 28 2022 Simone Caronni <negativo17@gmail.com> - 1:11.6.55-1
 - First build with the new tarball components.
