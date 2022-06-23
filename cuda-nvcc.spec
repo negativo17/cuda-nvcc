@@ -79,7 +79,7 @@ sed -i \
 %doc nvvm/libnvvm-samples
 %{_bindir}/bin2c
 %{_bindir}/cicc
-%{_bindir}/crt/
+%dir %{_bindir}/crt/
 %{_bindir}/crt/link.stub
 %{_bindir}/crt/prelink.stub
 %{_bindir}/cudafe++
@@ -93,6 +93,7 @@ sed -i \
 %{_datadir}/nvcc/libdevice.10.bc
 %dir %{_includedir}/crt/
 %{_includedir}/crt/common_functions.h
+%{_includedir}/crt/cudacc_ext.h
 %{_includedir}/crt/device_double_functions.h
 %{_includedir}/crt/device_double_functions.hpp
 %{_includedir}/crt/device_functions.h
