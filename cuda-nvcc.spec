@@ -4,7 +4,7 @@
 %global __strip /bin/true
 %global _missing_build_ids_terminate_build 0
 %global _build_id_links none
-%global major_package_version 11-6
+%global major_package_version 11-8
 
 Name:           %(echo %real_name | tr '_' '-')
 Epoch:          1
@@ -111,6 +111,8 @@ sed -i \
 %{_includedir}/crt/sm_70_rt.hpp
 %{_includedir}/crt/sm_80_rt.h
 %{_includedir}/crt/sm_80_rt.hpp
+%{_includedir}/crt/sm_90_rt.h
+%{_includedir}/crt/sm_90_rt.hpp
 %{_includedir}/crt/storage_class.h
 %{_includedir}/fatbinary_section.h
 %{_includedir}/nvPTXCompiler.h
