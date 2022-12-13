@@ -8,7 +8,7 @@
 
 Name:           %(echo %real_name | tr '_' '-')
 Epoch:          1
-Version:        11.8.89
+Version:        12.0.76
 Release:        1%{?dist}
 Summary:        CUDA Compiler (NVCC)
 License:        CUDA Toolkit
@@ -123,6 +123,9 @@ sed -i \
 %{_libdir}/libnvvm.so.4.0.0
 
 %changelog
+* Tue Dec 13 2022 Simone Caronni <negativo17@gmail.com> - 1:12.0.76-1
+- Update to 12.0.76.
+
 * Fri Nov 11 2022 Simone Caronni <negativo17@gmail.com> - 1:11.8.89-1
 - Update to 11.8.89.
 - Use aarch64 archive in place of sbsa.
