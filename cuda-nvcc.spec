@@ -76,7 +76,6 @@ sed -i \
 
 %files
 %license LICENSE
-%doc nvvm/libnvvm-samples
 %{_bindir}/bin2c
 %{_bindir}/cicc
 %dir %{_bindir}/crt/
