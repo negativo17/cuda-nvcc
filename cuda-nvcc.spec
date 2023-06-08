@@ -8,7 +8,7 @@
 
 Name:           %(echo %real_name | tr '_' '-')
 Epoch:          1
-Version:        12.1.66
+Version:        12.1.105
 Release:        1%{?dist}
 Summary:        CUDA Compiler (NVCC)
 License:        CUDA Toolkit
@@ -128,6 +128,9 @@ sed -i \
 %{_libdir}/libnvvm.so.4.0.0
 
 %changelog
+* Thu Jun 08 2023 Simone Caronni <negativo17@gmail.com> - 1:12.1.105-1
+- Update to 12.1.105.
+
 * Tue Apr 11 2023 Simone Caronni <negativo17@gmail.com> - 1:12.1.66-1
 - Update to 12.1.66.
 
