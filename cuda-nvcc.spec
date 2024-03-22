@@ -9,7 +9,7 @@
 Name:           %(echo %real_name | tr '_' '-')
 Epoch:          1
 Version:        12.4.99
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        CUDA Compiler (NVCC)
 License:        CUDA Toolkit
 URL:            https://developer.nvidia.com/cuda-toolkit
@@ -22,8 +22,8 @@ Source3:        nvcc.profile
 Requires(post): ldconfig
 Conflicts:      %{name}-%{major_package_version} < %{?epoch:%{epoch}:}%{version}-%{release}
 
-# CUDA 12 does not support GCC 13+:
-%if 0%{?fedora} >= 38
+# CUDA 12.4 does not support GCC 14+:
+%if 0%{?fedora} >= 40
 Requires:       cuda-gcc%{?_isa}
 Requires:       cuda-gcc-c++%{?_isa}
 %endif
@@ -123,6 +123,9 @@ sed -i \
 %{_libdir}/libnvvm.so.4.0.0
 
 %changelog
+* Fri Mar 22 2024 Simone Caronni <negativo17@gmail.com> - 1:12.4.99-2
+- Correct GCC requirements.
+
 * Tue Mar 12 2024 Simone Caronni <negativo17@gmail.com> - 1:12.4.99-1
 - Update to 12.4.99.
 - Drop ppc64le.
