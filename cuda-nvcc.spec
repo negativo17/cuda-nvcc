@@ -9,7 +9,7 @@
 Name:           %(echo %real_name | tr '_' '-')
 Epoch:          1
 Version:        12.4.99
-Release:        2%{?dist}
+Release:        1%{?dist}
 Summary:        CUDA Compiler (NVCC)
 License:        CUDA Toolkit
 URL:            https://developer.nvidia.com/cuda-toolkit
@@ -123,6 +123,9 @@ sed -i \
 %{_libdir}/libnvvm.so.4.0.0
 
 %changelog
+* Thu Jul 11 2024 Simone Caronni <negativo17@gmail.com> - 1:12.4.99-1
+- Update to 12.4.99.
+
 * Fri Mar 22 2024 Simone Caronni <negativo17@gmail.com> - 1:12.4.99-2
 - Correct GCC requirements.
 
