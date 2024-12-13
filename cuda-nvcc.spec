@@ -24,8 +24,7 @@ Conflicts:      %{name}-%{major_package_version} < %{?epoch:%{epoch}:}%{version}
 
 # CUDA 12.4 does not support GCC 14+:
 %if 0%{?fedora} >= 40
-Requires:       cuda-gcc%{?_isa}
-Requires:       cuda-gcc-c++%{?_isa}
+Requires:       cuda-gcc
 %endif
 
 %description
@@ -125,6 +124,7 @@ sed -i \
 %changelog
 * Fri Dec 13 2024 Simone Caronni <negativo17@gmail.com> - 1:12.6.85-1
 - Update to 12.6.85.
+- Require new cuda-gcc profile package.
 
 * Thu Sep 19 2024 Simone Caronni <negativo17@gmail.com> - 1:12.6.68-1
 - Update to 12.6.68.
