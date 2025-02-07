@@ -91,6 +91,7 @@ sed -i \
 %{_includedir}/crt/cudacc_ext.h
 %{_includedir}/crt/device_double_functions.h
 %{_includedir}/crt/device_double_functions.hpp
+%{_includedir}/crt/device_fp128_functions.h
 %{_includedir}/crt/device_functions.h
 %{_includedir}/crt/device_functions.hpp
 %{_includedir}/crt/func_macro.h
@@ -108,10 +109,13 @@ sed -i \
 %{_includedir}/crt/sm_80_rt.hpp
 %{_includedir}/crt/sm_90_rt.h
 %{_includedir}/crt/sm_90_rt.hpp
+%{_includedir}/crt/sm_100_rt.h
+%{_includedir}/crt/sm_100_rt.hpp
 %{_includedir}/crt/storage_class.h
 %{_includedir}/fatbinary_section.h
 %{_includedir}/nvPTXCompiler.h
 %{_includedir}/nvvm.h
+
 %{_libdir}/libnvptxcompiler_static.a
 %{_libdir}/libnvvm.so
 %{_libdir}/libnvvm.so.4
