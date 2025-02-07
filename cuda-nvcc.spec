@@ -21,10 +21,9 @@ Source3:        nvcc.profile
 
 Conflicts:      %{name}-%{major_package_version} < %{?epoch:%{epoch}:}%{version}-%{release}
 
-# CUDA 12.8 does not support GCC 14+:
-%if 0%{?fedora} >= 40
-Requires:       cuda-gcc
-%endif
+# CUDA 12.8 supports GCC 14+:
+Obsoletes:      cuda-gcc
+Provides:       cuda-gcc
 
 %description
 The compilation trajectory involves several splitting, compilation,
