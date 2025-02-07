@@ -4,7 +4,7 @@
 %global __strip /bin/true
 %global _missing_build_ids_terminate_build 0
 %global _build_id_links none
-%global major_package_version 12-6
+%global major_package_version 12-8
 
 Name:           %(echo %real_name | tr '_' '-')
 Epoch:          1
@@ -19,10 +19,9 @@ Source0:        https://developer.download.nvidia.com/compute/cuda/redist/%{real
 Source1:        https://developer.download.nvidia.com/compute/cuda/redist/%{real_name}/linux-sbsa/%{real_name}-linux-sbsa-%{version}-archive.tar.xz
 Source3:        nvcc.profile
 
-Requires(post): ldconfig
 Conflicts:      %{name}-%{major_package_version} < %{?epoch:%{epoch}:}%{version}-%{release}
 
-# CUDA 12.4 does not support GCC 14+:
+# CUDA 12.8 does not support GCC 14+:
 %if 0%{?fedora} >= 40
 Requires:       cuda-gcc
 %endif
@@ -71,8 +70,6 @@ sed -i \
     -e 's|LIBDIR|%{_libdir}|g' \
     -e 's|INCLUDE_DIR|%{_includedir}/cuda|g' \
     %{buildroot}/%{_bindir}/nvcc.profile
-
-%{?ldconfig_scriptlets}
 
 %files
 %license LICENSE
