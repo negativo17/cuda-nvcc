@@ -9,7 +9,7 @@
 Name:           %(echo %real_name | tr '_' '-')
 Epoch:          1
 Version:        12.8.61
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        CUDA Compiler (NVCC)
 License:        CUDA Toolkit
 URL:            https://developer.nvidia.com/cuda-toolkit
@@ -21,9 +21,14 @@ Source3:        nvcc.profile
 
 Conflicts:      %{name}-%{major_package_version} < %{?epoch:%{epoch}:}%{version}-%{release}
 
-# CUDA 12.8 supports GCC 14+:
+# CUDA 12.8 does not support GCC 15+:
+%if 0%{?fedora} >= 42
+Requires:       cuda-gcc
+%else
+# CUDA 12.8 supports GCC 14:
 Obsoletes:      cuda-gcc
 Provides:       cuda-gcc
+%endif
 
 %description
 The compilation trajectory involves several splitting, compilation,
@@ -122,6 +127,9 @@ sed -i \
 %{_libdir}/libnvvm.so.4.0.0
 
 %changelog
+* Mon Mar 10 2025 Simone Caronni <negativo17@gmail.com> - 1:12.8.61-2
+- Add cuda-gcc compat requirement for Fedora 42+.
+
 * Fri Feb 07 2025 Simone Caronni <negativo17@gmail.com> - 1:12.8.61-1
 - Update to 12.8.61.
 
