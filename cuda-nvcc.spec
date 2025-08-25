@@ -8,8 +8,8 @@
 
 Name:           %(echo %real_name | tr '_' '-')
 Epoch:          1
-Version:        12.8.61
-Release:        2%{?dist}
+Version:        13.0.48
+Release:        1%{?dist}
 Summary:        CUDA Compiler (NVCC)
 License:        CUDA Toolkit
 URL:            https://developer.nvidia.com/cuda-toolkit
@@ -127,6 +127,9 @@ sed -i \
 %{_libdir}/libnvvm.so.4.0.0
 
 %changelog
+* Mon Aug 25 2025 Simone Caronni <negativo17@gmail.com> - 1:13.0.48-1
+- Update to 13.0.48.
+
 * Mon Mar 10 2025 Simone Caronni <negativo17@gmail.com> - 1:12.8.61-2
 - Add cuda-gcc compat requirement for Fedora 42+.
 
