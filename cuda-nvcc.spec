@@ -30,6 +30,10 @@ Obsoletes:      cuda-gcc
 Provides:       cuda-gcc
 %endif
 
+Requires:       cuda-crt
+Requires:       libnvptxcompiler-devel
+Requires:       libnvvm-devel
+
 %description
 The compilation trajectory involves several splitting, compilation,
 preprocessing, and merging steps for each CUDA source file. It is the purpose of
