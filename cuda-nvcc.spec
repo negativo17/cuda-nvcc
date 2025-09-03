@@ -78,7 +78,6 @@ sed -i \
 %license LICENSE
 %{_bindir}/__nvcc_device_query
 %{_bindir}/bin2c
-%{_bindir}/cicc
 %dir %{_bindir}/crt/
 %{_bindir}/crt/link.stub
 %{_bindir}/crt/prelink.stub
