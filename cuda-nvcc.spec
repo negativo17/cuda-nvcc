@@ -21,11 +21,11 @@ Source3:        nvcc.profile
 
 Conflicts:      %{name}-%{major_package_version} < %{?epoch:%{epoch}:}%{version}-%{release}
 
-# CUDA 12.8 does not support GCC 15+:
+# CUDA 13.0 does not support GCC 15+:
 %if 0%{?fedora} >= 42
 Requires:       cuda-gcc
 %else
-# CUDA 12.8 supports GCC 14:
+# But it supports GCC 14, so obsolete the wrapper in case of an upgrade:
 Obsoletes:      cuda-gcc
 Provides:       cuda-gcc
 %endif
