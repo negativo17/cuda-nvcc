@@ -9,7 +9,7 @@
 Name:           %(echo %real_name | tr '_' '-')
 Epoch:          1
 Version:        13.0.88
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        CUDA Compiler (NVCC)
 License:        CUDA Toolkit
 URL:            https://developer.nvidia.com/cuda-toolkit
@@ -21,8 +21,8 @@ Source3:        nvcc.profile
 
 Conflicts:      %{name}-%{major_package_version} < %{?epoch:%{epoch}:}%{version}-%{release}
 
-# CUDA 13.0 does not support GCC 15+:
-%if 0%{?fedora} >= 42
+# CUDA 13.0 does not support GCC 16+:
+%if 0%{?fedora} >= 44
 Requires:       cuda-gcc
 %else
 # But it supports GCC 14, so obsolete the wrapper in case of an upgrade:
@@ -87,6 +87,10 @@ sed -i \
 %{_includedir}/fatbinary_section.h
 
 %changelog
+* Fri Oct 31 2025 Simone Caronni <negativo17@gmail.com> - 1:13.0.88-4
+- CUDA 13.0 supports GCC 15.
+- Adjust nvcc profile for cccl.
+
 * Fri Oct 31 2025 Simone Caronni <negativo17@gmail.com> - 1:13.0.88-3
 - Fix INCLUDES in nvcc.profile.
 
