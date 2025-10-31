@@ -9,7 +9,7 @@
 Name:           %(echo %real_name | tr '_' '-')
 Epoch:          1
 Version:        13.0.88
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        CUDA Compiler (NVCC)
 License:        CUDA Toolkit
 URL:            https://developer.nvidia.com/cuda-toolkit
@@ -68,6 +68,7 @@ sed -i \
     -e 's|PREFIX|%{_prefix}|g' \
     -e 's|BINDIR|%{_bindir}|g' \
     -e 's|LIBDIR|%{_libdir}|g' \
+    -e 's|INCLUDE_DIR|%{_includedir}|g' \
     %{buildroot}/%{_bindir}/nvcc.profile
 
 %files
@@ -86,6 +87,9 @@ sed -i \
 %{_includedir}/fatbinary_section.h
 
 %changelog
+* Fri Oct 31 2025 Simone Caronni <negativo17@gmail.com> - 1:13.0.88-3
+- Fix INCLUDES in nvcc.profile.
+
 * Fri Oct 31 2025 Simone Caronni <negativo17@gmail.com> - 1:13.0.88-2
 - Require cudart.
 - Adjust nvcc.profile for CMake nvvm/libdevice detection.
