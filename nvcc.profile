@@ -1,5 +1,5 @@
-NVVMIR_LIBRARY_DIR = /usr/share/libdevice
-PATH += /usr/libexec/cuda/open64/bin:
+CICC_PATH = BINDIR
+NVVMIR_LIBRARY_DIR = PREFIX/nvvm/libdevice
 INCLUDES += "-IINCLUDE_DIR"
 LIBRARIES =+ "-LLIBDIR"
 CUDAFE_FLAGS +=

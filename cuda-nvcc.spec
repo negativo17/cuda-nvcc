@@ -9,7 +9,7 @@
 Name:           %(echo %real_name | tr '_' '-')
 Epoch:          1
 Version:        13.0.88
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        CUDA Compiler (NVCC)
 License:        CUDA Toolkit
 URL:            https://developer.nvidia.com/cuda-toolkit
@@ -31,6 +31,7 @@ Provides:       cuda-gcc
 %endif
 
 Requires:       cuda-crt
+Requires:       cuda-cudart-devel
 Requires:       libnvptxcompiler-devel
 Requires:       libnvvm-devel
 
@@ -43,12 +44,6 @@ options, such as for defining macros and include/library paths, and for steering
 the compilation process. All non-CUDA compilation steps are forwarded to a C++
 host compiler that is supported by nvcc, and nvcc translates its options to
 appropriate host compiler command line options.
-
-NVVM IR is a compiler IR (intermediate representation) based on the LLVM IR.
-The NVVM IR is designed to represent GPU compute kernels (for example, CUDA
-kernels). High-level language front-ends, like the CUDA C compiler front-end,
-can generate NVVM IR. The NVVM compiler (which is based on LLVM) generates PTX
-code from NVVM IR.
 
 %prep
 %ifarch x86_64
@@ -70,8 +65,9 @@ cp -f %{SOURCE3} %{buildroot}%{_bindir}/
 
 # Set proper variables
 sed -i \
+    -e 's|PREFIX|%{_prefix}|g' \
+    -e 's|BINDIR|%{_bindir}|g' \
     -e 's|LIBDIR|%{_libdir}|g' \
-    -e 's|INCLUDE_DIR|%{_includedir}/cuda|g' \
     %{buildroot}/%{_bindir}/nvcc.profile
 
 %files
@@ -90,6 +86,10 @@ sed -i \
 %{_includedir}/fatbinary_section.h
 
 %changelog
+* Fri Oct 31 2025 Simone Caronni <negativo17@gmail.com> - 1:13.0.88-2
+- Require cudart.
+- Adjust nvcc.profile for CMake nvvm/libdevice detection.
+
 * Sun Oct 26 2025 Simone Caronni <negativo17@gmail.com> - 1:13.0.88-1
 - Update to 13.0.88.
 
