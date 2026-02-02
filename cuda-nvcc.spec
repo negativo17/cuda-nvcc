@@ -8,8 +8,8 @@
 
 Name:           %(echo %real_name | tr '_' '-')
 Epoch:          1
-Version:        13.0.88
-Release:        4%{?dist}
+Version:        13.1.115
+Release:        1%{?dist}
 Summary:        CUDA Compiler (NVCC)
 License:        CUDA Toolkit
 URL:            https://developer.nvidia.com/cuda-toolkit
@@ -87,6 +87,9 @@ sed -i \
 %{_includedir}/fatbinary_section.h
 
 %changelog
+* Mon Feb 02 2026 Simone Caronni <negativo17@gmail.com> - 1:13.1.115-1
+- Update to 13.1.115.
+
 * Fri Oct 31 2025 Simone Caronni <negativo17@gmail.com> - 1:13.0.88-4
 - CUDA 13.0 supports GCC 15.
 - Adjust nvcc profile for cccl.
