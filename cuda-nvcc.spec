@@ -8,7 +8,7 @@
 
 Name:           %(echo %real_name | tr '_' '-')
 Epoch:          1
-Version:        13.2.51
+Version:        13.3.73
 Release:        1%{?dist}
 Summary:        CUDA Compiler (NVCC)
 License:        CUDA Toolkit
@@ -87,6 +87,9 @@ sed -i \
 %{_includedir}/fatbinary_section.h
 
 %changelog
+* Wed Jul 22 2026 Simone Caronni <negativo17@gmail.com> - 1:13.3.73-1
+- Update to 13.3.73.
+
 * Thu Mar 19 2026 Simone Caronni <negativo17@gmail.com> - 1:13.2.51-1
 - Update to 13.2.51.
 
